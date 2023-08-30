@@ -1,0 +1,29 @@
+{% extends 'carsaudi/base.html' %}
+{% load my_tegs %}
+{% block content %}
+
+
+    <div class="container marketing">
+
+        {% for object in object_list %}
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">{{ object.name }}</h2>
+                    <p><a class="btn btn-lg btn-primary m-3" href="{% url 'carsaudi:product_detail' object.pk %}">Подробнее</a></p>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{ object.photo|mediapath }}" class="img-thumbnail"
+                         alt="Card image cap">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
